@@ -30,8 +30,47 @@ namespace Homework2
                     Console.WriteLine(numbers[i] + " is a prime number");
                 }
             }
+            //1st task 
+            Console.WriteLine("1st task");
+            for (int i = 0; i < 100; i++)
+            {
+                Console.WriteLine($"positive = {i} and negative = {-i}" );
+            }
+
+
             //4th task 
             Console.WriteLine("4th task");
+            bool flag = true;
+            int[] inputNumbers = new int[0];
+            int increment = 0;
+
+            do
+            {
+                Console.WriteLine("Please enter the number...\n");
+                int num = Convert.ToInt32(Console.ReadLine());
+                Array.Resize(ref inputNumbers, inputNumbers.Length + 1);
+                inputNumbers[increment] = num;
+                int[] tekEdedler = new int[0];
+                increment++;
+                Console.WriteLine("Would you like to continue?");
+                string answer = Console.ReadLine();
+                if (answer != "y" && answer != "Y")
+                {
+                    flag = false;
+                    Console.WriteLine("exiting ...");
+                    for (int i = 0; i < inputNumbers.Length; i++)
+                    {
+                        if (inputNumbers[i] % 2 != 0)
+                        {
+                            Array.Resize(ref tekEdedler, tekEdedler.Length + 1);
+                            tekEdedler[i - 1] = inputNumbers[i];
+                            Console.WriteLine($"tek edeler arrayi : {tekEdedler}");
+                        }
+                    }
+                }
+
+            } while (flag);
+
         }
     }
 }
